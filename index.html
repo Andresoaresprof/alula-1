@@ -62,5 +62,44 @@
     <div>
         <button class="cardbtn" ><a href="#">saiba mais</a></button>
     </div>
+    <p>
+        function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    // Mostra a mensagem do usuário
+    const chatBox = document.getElementById("chat-box");
+    const userDiv = document.createElement("div");
+    userDiv.className = "user-message";
+    userDiv.textContent = message;
+    chatBox.appendChild(userDiv);
+
+    // Resposta do chatbot
+    const botDiv = document.createElement("div");
+    botDiv.className = "bot-message";
+    botDiv.textContent = getBotResponse(message);
+    chatBox.appendChild(botDiv);
+
+    // Limpa o campo e rola para o final
+    input.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Função com respostas simples
+function getBotResponse(input) {
+    input = input.toLowerCase();
+
+    if (input.includes("oi") || input.includes("olá")) {
+        return "Oi! Tudo bem com você?";
+    } else if (input.includes("tudo bem")) {
+        return "Estou ótimo! E você?";
+    }  else if (input.includes("tchau")) {
+        return "Tchau! Volte sempre 😄";
+    } else {
+        return "Desculpe, ainda não entendo isso. Pode tentar outra pergunta?";
+    }}
+    
+    </p>
 </body>
 </html>
